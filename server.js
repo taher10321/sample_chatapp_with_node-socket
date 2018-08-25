@@ -1,7 +1,5 @@
-const port = process.env.port || 4000;
-
 const mongo = require('mongodb').MongoClient;
-const client = require('socket.io').listen(port).sockets;
+const client = require('socket.io').listen(process.env.PORT || 4024).sockets;
 
 // DB Config 
 // const db1 = require('./config/database');
