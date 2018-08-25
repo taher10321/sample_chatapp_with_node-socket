@@ -1,5 +1,5 @@
 const mongo = require('mongodb').MongoClient;
-const client = require('socket.io').listen(process.env.PORT || 4024).sockets;
+const client = require('socket.io').listen(process.env.PORT || 4000).sockets;
 
 // DB Config 
 // const db1 = require('./config/database');
