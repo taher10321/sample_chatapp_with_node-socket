@@ -1,10 +1,15 @@
 const express = require('express');
+const path = require('path');
 const mongo = require('mongodb').MongoClient;
 const client = require('socket.io').listen(process.env.PORT || 4000).sockets;
 
 const app = express();
 // DB Config 
 // const db1 = require('./config/database');
+
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname,'/index.html'));
+});
 
 // Connect to mongo
 mongo.connect('mongodb://Brad:turnover121@ds131932.mlab.com:31932/mongochat_for_test', function (err, db) {
@@ -65,8 +70,7 @@ mongo.connect('mongodb://Brad:turnover121@ds131932.mlab.com:31932/mongochat_for_
             });
         });
     });
-
-    app.route('/', (req, res) => {
-        res.sendFile('/index.html');
-    })
+});
+app.listen(5111, () => {
+    console.log("Server Started at port 4000");
 });
